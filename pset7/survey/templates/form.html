@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  <h1 class="mb-3">Form</h1>
+    <!-- Provide your name-->
+    <form class="needs-validation" action="/form" method="post" novalidate>
+      <div class="form-row">
+        <div class="col-md-5 mb-2">
+          <label for="validationCustom01">First name</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="First name" autofocus name="firstname" required>
+          <div class="invalid-feedback">
+            Please provide your first name
+          </div>
+        </div>
+        <div class="col-md-5 mb-2">
+          <label for="validationCustom02">Last name</label>
+          <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" name="lastname" required>
+          <div class="invalid-feedback">
+            Please provide your last name
+          </div>
+        </div>
+      </div>
+      <!-- Choose your gender-->
+        <div class="form-row">
+            <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                  <label class="form-check-label">
+                      <input class="form-check-input" name="gender" type="radio" value="male">
+                          Male
+                  </label>
+              </div>
+              <div class="form-check">
+                  <label class="form-check-label">
+                      <input class="form-check-input" name="gender" type="radio" value="female">
+                          Female
+                  </label>
+              </div>
+          </div>
+
+          <!-- Choose your nation-->
+              <div class="col-sm-4">
+                  <div class="form-group">
+                      <label for="inputState">State</label>
+                      <select id="inputState" class="form-control" name="nation">
+                          <option value="" disabled="disabled"  style="display:none" selected="selected">Please select</option>
+                          <option>local</option>
+                          <option>foreign</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    <!--
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+
+    </script>
+    -->
+{% endblock %}

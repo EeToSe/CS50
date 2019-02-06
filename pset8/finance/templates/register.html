@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+     <form action="/register" id="registration" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm Password" type="password">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script>
+            let input = $("#registration input[name=username]");
+            $(document).ready(function() {
+                $("#registration").submit(function() {
+                    $.getJSON('/check?username=' + input.val(), function(data) {
+                        if (!data){
+                            alert("Invalid username or password");
+                            return false;
+                        }
+                        return true;
+                    });
+                });
+            });
+        </script>
+
+{% endblock %}

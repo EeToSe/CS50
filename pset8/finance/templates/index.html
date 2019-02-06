@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <table class="table table-bordered">
+        <thead>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+            {% for i in statistics %}
+            <tr>
+                <td>{{ i.symbol }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.shares }}</td>
+                <td>{{ i.price  }}</td>
+                <td>{{ i.total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Cash: {{ available_cash }}</p>
+    <p>Total: {{ total_asset }} </p>
+
+
+
+{% endblock %}
